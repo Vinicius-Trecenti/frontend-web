@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Layout 2</title>
+        <style>
+            #main{
+                background-color: rgb(253, 253, 253);
+                width: 100%;
+                height: 1000px;
+                
+                display: flex;
+            }
+
+            #esquerda{
+                width: 20%;
+                height: 100%;
+                background-color: aqua;
+            }
+
+            #direita{
+                width: 100%;
+                height: 100%;
+                background-color: aquamarine;
+            }
+
+            #sidebar{
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                align-items: center;
+
+            }
+
+            #logo{
+                width: 150px;
+                height: 50px;
+                background-color: cornflowerblue;
+                margin: 10px;
+            }
+
+            #baixo{
+                width: 150px;
+                height: 50px;
+                background-color: cornflowerblue;
+                margin-bottom: 10px;
+            }
+
+            #header{
+                width: 100%;
+                height: 100px;
+                background-color: deepskyblue;
+
+                display: flex;
+                justify-content:flex-end;
+                align-items: center;
+
+            }
+
+            #perfil{
+                width: 70px;
+                height: 70px;
+                background-color: lightgreen;
+                margin-right: 20px;	
+            }
+
+            #bola{
+                width: 70px;
+                height: 70px;
+                background-color: lightgreen;
+                margin-right: 20px;
+            }
+
+            #meio{
+                width: 100%;
+                height: 1000px;
+                background-color: antiquewhite;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+            }
+
+            #pesquisar{
+                width: 500px;
+                height: 70px;
+                background-color: cadetblue;
+
+                margin-left: 50px;
+
+            }
+            
+            #foto{
+                width: 900px;
+                height: 500px;
+                background-color: cadetblue;
+                margin-top: 20px;
+                margin-left: 50px
+            }
+
+            #footer{
+                width: 100%;
+                height: 100px;
+                background-color: aquamarine;
+
+                margin-top: 110px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="main">
+
+            <div id="esquerda">
+                <div id="sidebar">
+                    <div id="logo"></div>
+                    <div id="baixo"></div>
+                </div>
+            </div>
+            
+            <div id="direita">
+                <div id="header">
+                    <div id="perfil"></div>
+                    <div id="bola"></div>
+                </div>
+    
+                <div id="meio">
+                    <div id="pesquisar"></div>
+                    <div id="foto"></div>
+                    <div id="footer"></div>
+                </div>
+                
+            </div>
+    
+        </div>
+    </body>
+</html>

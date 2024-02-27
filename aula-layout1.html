@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Layout 1</title>
+
+        <style>
+            #header{
+                background-color: black;
+                display: flex;
+                justify-content: space-between;
+
+                padding: 10px;
+
+            }
+
+            #logo{
+                width: 100px;
+                height: 70px;
+                background-color: crimson;    
+            }
+            #nav{
+                background-color: deeppink;
+                width: 400px;
+                height: 70px;    
+            }
+
+
+            #main{
+                background-color:aqua;
+                display: flex;
+                justify-content:center;
+                padding: 10px;
+
+            }
+
+            #sidebar{
+                width: 250px;
+                height: 500px;
+                background-color:aquamarine;
+                margin: 0 10px 0 0;    
+            }
+            #content{
+                background-color:rgb(9, 207, 197);
+                width: 550px;
+                height: 500px;    
+            }
+
+            #footer{
+                background-color:cadetblue;
+                display: flex;
+                justify-content:space-around;
+                align-items:center;
+                padding: 10px;
+                height: 400px;
+            }
+
+            #txt-footer{
+                width: 450px;
+                height: 200px;
+                background-color:cornflowerblue;
+                margin: 0 10px 0 0;    
+            }
+            #logo-footer{
+                background-color:hotpink;
+                width: 100px;
+                height: 70px;   
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo"></div>
+            <div id="nav"></div>
+        </div>
+
+        <div id="main">
+            <div id="sidebar"></div>
+            <div id="content"></div>
+        </div>
+
+        <div id="footer">
+            <div id="txt-footer"></div>
+            <div id="logo-footer"></div>
+        </div>
+    </body>
+</html>
