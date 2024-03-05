@@ -1,0 +1,58 @@
+/* 
+Cores
+azul
+#000328
+#00458E
+cinza
+#243748
+#4B749F
+
+background: hsla(236, 100%, 8%, 1);
+background: linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
+background: -moz-linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
+background: -webkit-linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000328", endColorstr="#00458e", GradientType=1 );
+*/
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    width: calc(100% - 32px);
+    height: 70px;
+    background: #00163d; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.logotipo{
+    width: 300px;
+    height: 50px;
+    background-color:rgb(8, 29, 51);
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-family:Arial, Helvetica, sans-serif ;
+}
+
+.logotipo img{
+    width: 45px;
+    height: 45px;
+}
+.logotipo h1{
+    color: white;
+    margin: 0;
+}
+
+nav{
+    width: 500px;
+    height: 50px;
+    background-color: rgb(8, 29, 51);
+}
