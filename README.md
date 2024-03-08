@@ -26,4 +26,5 @@ git push
 - Atributos em HTML
 - CSS (Interno, Externo e inline)
 - Prioridade de exibição/efeito na modificação do CSS
-- Divs 
+- Divs
+- 
