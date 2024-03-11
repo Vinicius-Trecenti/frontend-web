@@ -19,10 +19,14 @@ html, body{
     padding: 0;
 }
 
-header{
+body > header{
     width: calc(100% - 32px);
     height: 70px;
     background: #00163d; 
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     display: flex;
     justify-content: space-between;
@@ -51,8 +55,20 @@ header{
     margin: 0;
 }
 
-nav{
-    width: 500px;
-    height: 50px;
+.logotipo h1 span{
+    color: #02a0e1;
+    margin: 0;
+}
+
+header nav{
     background-color: rgb(8, 29, 51);
+    color: white;
+}
+
+header nav ul{
+    display: flex;
+    list-style-type: none;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
 }
