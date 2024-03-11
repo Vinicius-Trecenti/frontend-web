@@ -17,6 +17,8 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000328", en
 html, body{
     margin: 0;
     padding: 0;
+    background-color: #d2f2ff;
+    color: white;
 }
 
 body > header{
@@ -71,4 +73,19 @@ header nav ul{
     gap: 16px;
     margin: 0;
     padding: 0;
+}
+
+main{
+    background: #a8e3fa;
+    min-height: calc(100vh - 302px);
+    padding: 16px;
+}
+
+footer{
+    background:#00163d;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
