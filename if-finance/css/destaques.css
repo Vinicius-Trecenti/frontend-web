@@ -1,0 +1,8 @@
+body main {
+    color:rgb(21, 21, 75);
+    flex-direction: column;
+}
+
+#titulo{
+    text-align: center;
+}

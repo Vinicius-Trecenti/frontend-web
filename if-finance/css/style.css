@@ -193,3 +193,21 @@ body > footer{
     font-size: 15px;
     color: #02a0e1;
 }
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    color: #041e4d;
+    border: 1px solid;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color:#d2f2ff;
+}
+tr:nth-child(odd){
+    background-color:aliceblue;
+}
