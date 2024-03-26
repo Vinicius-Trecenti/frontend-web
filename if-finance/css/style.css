@@ -211,3 +211,9 @@ tr:nth-child(even){
 tr:nth-child(odd){
     background-color:aliceblue;
 }
+
+fieldset{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
