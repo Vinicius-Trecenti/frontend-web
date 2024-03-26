@@ -1,0 +1,4 @@
+body > main{
+    flex-direction: column;
+    align-items: center;
+}

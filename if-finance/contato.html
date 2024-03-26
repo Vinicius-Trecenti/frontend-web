@@ -24,7 +24,10 @@
     </header>
 
     <main>
-        <h1>Cadastre-se</h1>
+        <div class="titulo">
+            <img src="img/do-utilizador.gif">
+            <h1> Cadastre-se</h1>
+        </div>
 
         <form action="server.php" method="POST">
             <fieldset>
@@ -55,7 +58,7 @@
                     <option value="Ubatuba">Ubatuba</option>
                     <option value="São Sebastião">São Sebastião</option>
                 </select>
-                <h4>Com que frequencia visita o litoral</h4>
+                <h5>Com que frequencia visita o litoral</h5>
                 <div>
                     <input id="muito-pouco" type="radio" name="frequencia" value="muito-pouco"><label for="muito-pouco">Muito pouco</label>
                 </div>
@@ -74,6 +77,9 @@
             <input type="checkbox" name="newsletter" value="Sim" id="newsletter"><label for="newsletter">Gostaria de receber propaganda? Vamos mandar de qualquer forma</label>
         
             <br>
+            <br>
+            <label for="comentario">Deixe um comentário</label><br>
+            <textarea name="comentario" id="comentario" rows="8" cols="50"></textarea><br>
             <input type="submit" value="Enviar">
         </form>
     </main>
