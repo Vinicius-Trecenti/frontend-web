@@ -57,6 +57,10 @@ body > header nav a.active{
 
 }
 
+body header div a {
+    text-decoration: none;
+}
+
 .logotipo{
     width: 300px;
     height: 50px;
@@ -256,10 +260,35 @@ input[type=submit]:hover, input[type=reset]:hover{
 }
 
 #banner{
-    width: 350px;
+    width: 100%;
     height: 350px;
     background: #041e4d;
     background-image: url('../img/apresentacao.gif');
     background-size: cover;
     border-radius: 50px;
+}
+
+nav div{
+	display: none;
+}
+
+@media (width <= 700px) {
+	header nav ul {
+		display: none;
+	}
+	header nav div {
+		display: block;
+	}
+}
+
+@media (width <= 600px) {
+	body > main {
+		justify-content: center;
+	}
+}
+
+@media (width <= 400px) {
+	.card-ticker {
+		width: 100%;
+	}
 }

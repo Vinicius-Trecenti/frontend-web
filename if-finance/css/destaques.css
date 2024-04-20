@@ -6,3 +6,8 @@ body main {
 #titulo{
     text-align: center;
 }
+
+#destaque{
+    text-decoration: underline;
+    color: #02a0e1;
+}

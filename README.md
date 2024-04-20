@@ -27,4 +27,7 @@ git push
 - CSS (Interno, Externo e inline)
 - Prioridade de exibição/efeito na modificação do CSS
 - Divs
-- 
+- Responsividade 
+- Tabelas
+- Forms
+
