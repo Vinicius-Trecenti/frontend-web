@@ -1,30 +1,85 @@
 console.log("Arquivo js externo")
 
-function addCard(){
+const allStocks = [
+    {
+        bolsa: 'NASDAQ',
+        codigo: 'AAPL',
+        empresa: 'Apple Inc',
+        valor: 25080,
+        variacao: 0.35,
+        nacoes: 40
+    }, 
+    {
+        bolsa: 'NASDAQ',
+        codigo: 'MSFT',
+        empresa: 'Microsoft Corp',
+        valor: 51090,
+        variacao: -1.35,
+        nAcoes: 40
+    }, 
+    {
+        bolsa: 'NASDAQ',
+        codigo: 'META',
+        empresa: 'Meta Plant Inc',
+        valor: 43262,
+        variacao: 2.3,
+        nAcoes: 5
+    }
+]
+
+
+function addCard(stock){
     //document é a estrutura e o query seleciona
     const main = document.querySelector('body > main')
-    main.innerHTML = main.innerHTML + 
-    `
+    main.innerHTML = main.innerHTML + `
     <div class="card-tincker">
             <header>
-                <h2><span> NASDAQ:</span> APPL</h2>
-                <h1>Aplle inc</h1>
+                <h2><span> ${stock.bolsa}:</span> ${stock.codigo}</h2>
+                <h1>${stock.empresa}</h1>
             </header>
             <main>
-                <p>R$ 1.350</p>
-                <span>▲ 0,15%</span>
-                <span>R$ 0,80</span>
+                <p>R$ ${(+stock.valor / 100).toFixed(2).toString().replace('.', ',')}</p>
+
+                <span ${stock.variacao < 0 ? 'style="background: red;"': ''}> ${stock.variacao < 0 ? '▼': '▲'} ${stock.variacao}%</span>
+                
+                <span>R$ ${realFormat(((+stock.valor / 100)*(stock.variacao / 100)))}</span>
+
             </main>
             <footer>
                 <div>
-                    <p>50</p>
+                    <p>${stock.nAcoes}</p>
                     <span>Ações</span>
                 </div>
                 <div>
-                    <p>R$ 1.000</p>
+                    <p>R$ ${realFormat(stock.nAcoes * (stock.valor/100))}</p>
                     <span>Posição</span>
                 </div>
             </footer>
-        </div>
-        `
+        </div>`
 }
+
+function realFormat(valor){
+    return valor.toFixed(2).toString().replace('.', ',')
+}
+
+function loadCards(){
+    //for(let i=0; i < allStocks.length(); i++){
+    //    addCard(allStocks[i])
+    //}
+
+    //allStocks.map((stock) => {
+    //    addCard(stock)
+    //})
+
+    allStocks.map(stock => addCard(stock))
+
+    //allStocks.map((stock, index) => addCard(stock), console.log(index))
+
+    //allStocks.forEach(stock => addCard(stock))
+}
+
+//const showStock = (stock) => {
+//    addCard(stock)
+//}
+
+//const showStock2 = stock => addCard(stock)

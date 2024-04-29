@@ -13,7 +13,7 @@
     </script>
 </head>
 
-<body>
+<body onload="loadCards()">
     <header>
         <div class="logotipo">
             <img src="img/logo.svg" alt="Logo Wallet">
@@ -23,7 +23,7 @@
         </div>
         <nav>
             <ul>
-                <li><button onclick="addCard()">Add Card</button></li>
+                <li><button onclick="addCard(allStocks[0])">Add Card</button></li>
                 <li><a href="./index.html" class="active">Home</a></li>
                 <li><a href="./destaques.html">Destaques</a></li>
                 <li><a href="./sobre.html">Sobre</a></li>
@@ -37,115 +37,7 @@
     </header>
 
     <main>
-        <div class="card-tincker">
-            <header>
-                <h2><span> NASDAQ:</span> APPL</h2>
-                <h1>Aplle inc</h1>
-            </header>
-            <main>
-                <p>R$ 1.350</p>
-                <span>▲ 0,15%</span>
-                <span>R$ 0,80</span>
-            </main>
-            <footer>
-                <div>
-                    <p>50</p>
-                    <span>Ações</span>
-                </div>
-                <div>
-                    <p>R$ 1.000</p>
-                    <span>Posição</span>
-                </div>
-            </footer>
-        </div>
-
-        <div class="card-tincker">
-            <header>
-                <h2><span> NASDAQ:</span> APPL</h2>
-                <h1>Aplle inc</h1>
-            </header>
-            <main>
-                <p>R$ 2.000</p>
-                <span>▲ 0,35%</span>
-                <span>R$ 0,60</span>
-            </main>
-            <footer>
-                <div>
-                    <p>50</p>
-                    <span>Ações</span>
-                </div>
-                <div>
-                    <p>R$ 1.000</p>
-                    <span>Posição</span>
-                </div>
-            </footer>
-        </div>
-
-        <div class="card-tincker">
-            <header>
-                <h2><span> NASDAQ:</span> APPL</h2>
-                <h1>Aplle inc</h1>
-            </header>
-            <main>
-                <p>R$ 1.000</p>
-                <span>▲ 0,35%</span>
-                <span>R$ 0,60</span>
-            </main>
-            <footer>
-                <div>
-                    <p>50</p>
-                    <span>Ações</span>
-                </div>
-                <div>
-                    <p>R$ 1.000</p>
-                    <span>Posição</span>
-                </div>
-            </footer>
-        </div>
-
-        <div class="card-tincker">
-            <header>
-                <h2><span> NASDAQ:</span> NVDA </h2>
-                <h1>NVDIA</h1>
-            </header>
-            <main>
-                <p>R$ 1.256</p>
-                <span style="background-color: red;">▼ 0,80%</span>
-                <span>R$ 0,53</span>
-            </main>
-            <footer>
-                <div>
-                    <p>40</p>
-                    <span>Ações</span>
-                </div>
-                <div>
-                    <p>R$ 1.256</p>
-                    <span>Posição</span>
-                </div>
-            </footer>
-        </div>
-
-        <div class="card-tincker">
-            <header>
-                <h2><span> NASDAQ:</span> VALE3 </h2>
-                <h1>Vale 3</h1>
-            </header>
-            <main>
-                <p>R$ 1.151</p>
-                <span style="background-color: red;">▼ 0,90%</span>
-                <span>R$ 0,93</span>
-            </main>
-            <footer>
-                <div>
-                    <p>52</p>
-                    <span>Ações</span>
-                </div>
-                <div>
-                    <p>R$ 1.896</p>
-                    <span>Posição</span>
-                </div>
-            </footer>
-        </div>
+        
     </main>
 
     <footer>
