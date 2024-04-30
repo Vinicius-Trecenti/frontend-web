@@ -7,8 +7,8 @@ const allStocks = [
         empresa: 'Apple Inc',
         valor: 25080,
         variacao: 0.35,
-        nacoes: 40
-    }, 
+        nAcoes: 80
+    },
     {
         bolsa: 'NASDAQ',
         codigo: 'MSFT',
@@ -16,7 +16,7 @@ const allStocks = [
         valor: 51090,
         variacao: -1.35,
         nAcoes: 40
-    }, 
+    },
     {
         bolsa: 'NASDAQ',
         codigo: 'META',
@@ -28,7 +28,7 @@ const allStocks = [
 ]
 
 
-function addCard(stock){
+function addCard(stock) {
     //document é a estrutura e o query seleciona
     const main = document.querySelector('body > main')
     main.innerHTML = main.innerHTML + `
@@ -40,9 +40,9 @@ function addCard(stock){
             <main>
                 <p>R$ ${(+stock.valor / 100).toFixed(2).toString().replace('.', ',')}</p>
 
-                <span ${stock.variacao < 0 ? 'style="background: red;"': ''}> ${stock.variacao < 0 ? '▼': '▲'} ${stock.variacao}%</span>
+                <span ${stock.variacao < 0 ? 'style="background: red;"' : ''}> ${stock.variacao < 0 ? '▼' : '▲'} ${stock.variacao}%</span>
                 
-                <span>R$ ${realFormat(((+stock.valor / 100)*(stock.variacao / 100)))}</span>
+                <span>R$ ${realFormat(((+stock.valor / 100) * (stock.variacao / 100)))}</span>
 
             </main>
             <footer>
@@ -51,18 +51,18 @@ function addCard(stock){
                     <span>Ações</span>
                 </div>
                 <div>
-                    <p>R$ ${realFormat(stock.nAcoes * (stock.valor/100))}</p>
+                    <p>R$ ${realFormat(stock.nAcoes * (stock.valor / 100))}</p>
                     <span>Posição</span>
                 </div>
             </footer>
         </div>`
 }
 
-function realFormat(valor){
+function realFormat(valor) {
     return valor.toFixed(2).toString().replace('.', ',')
 }
 
-function loadCards(){
+function loadCards() {
     //for(let i=0; i < allStocks.length(); i++){
     //    addCard(allStocks[i])
     //}
@@ -83,3 +83,22 @@ function loadCards(){
 //}
 
 //const showStock2 = stock => addCard(stock)
+
+function loadTable(){
+    console.log(allStocks.nAcoes)
+    allStocks.map(stock => addRows(stock))
+}
+
+function addRows(stock) {
+    const tr = document.querySelector('#acoes')
+    tr.innerHTML = tr.innerHTML + `
+    <tr>
+        <td>${stock.bolsa}</td>
+        <td>${stock.codigo}</td>
+        <td>${stock.empresa}</td>
+        <td>R$ ${(+stock.valor / 100).toFixed(2).toString().replace('.', ',')}</td>
+        <td><span ${stock.variacao < 0 ? 'style="background: red; border-radius:10px;"' : 'style="background: green; border-radius:10px;"'}> ${stock.variacao < 0 ? '▼' : '▲'} ${stock.variacao}%</span></td>
+        <td>${stock.nAcoes}</td>
+        <td>R$ ${realFormat(stock.nAcoes * (stock.valor / 100))}</td>
+    </tr>`
+}

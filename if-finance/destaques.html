@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/destaques.css"
+    <link rel="stylesheet" href="css/destaques.css">
+    <script src="js/main.js"></script>
 
 </head>
-<body>
+<body onload="loadTable()">
     <header>
         <div class="logotipo">
             <img src="img/logo.svg" alt="Logo Wallet">
@@ -40,6 +41,7 @@
                 <th>Setor</th>
                 <th>Site</th>
             </tr>
+            
             <tr>
                 <th rowspan="3">NASDAQ</th>
                 <td>AAPL</td>
@@ -99,7 +101,22 @@
                 <td>Energy Minerals</td>
                 <td><a href="https://www.vale.com.br">Vale.com.br</a></td>
             </tr>
+        </table>
 
+        <h1 style="text-align: center;">Tabela de ações na carteira</h1>
+        <table id="acoes">
+            <tr>
+                <th colspan="7">Ações</th>
+            </tr>
+            <tr>
+                <th>Bolsa</th>
+                <th>Codigo</th>
+                <th>Empresa</th>
+                <th>Valor</th>
+                <th>Variação</th>
+                <th>N Ações</th>
+                <th>Posição</th>
+            </tr>
         </table>
     </main>
 
