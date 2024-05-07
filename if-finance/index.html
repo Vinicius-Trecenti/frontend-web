@@ -23,11 +23,11 @@
         </div>
         <nav>
             <ul>
-                <li><button onclick="addCard(allStocks[0])">Add Card</button></li>
                 <li><a href="./index.html" class="active">Home</a></li>
                 <li><a href="./destaques.html">Destaques</a></li>
                 <li><a href="./sobre.html">Sobre</a></li>
                 <li><a href="./contato.html">Contato</a></li>
+                <li><button onclick="openModal()">Add Card</button></li>
             </ul>
 
             <div>
@@ -43,6 +43,34 @@
     <footer>
         <p>Copyright - 2024 &copy; Vinicius Trecenti </p>
     </footer>
+
+    <div id="add-card-modal" onclick="closeModal(event)">
+        <main>
+            <h2>Adicionando Cards</h2>
+
+            <form onsubmit="createCard(event)">
+                <label for="bolsa">Bolsa</label>
+                <input type="text" name="bolsa" id="bolsa">
+
+                <label for="codigo">Código</label>
+                <input type="text" name="codigo" id="codigo">
+
+                <label for="empresa">Empresa</label>
+                <input type="text" name="empresa" id="empresa">
+
+                <label for="valor">Valor</label>
+                <input type="text" name="valor" id="valor">
+
+                <label for="variacao" >Variação</label>
+                <input type="text" name="variacao" id="variacao">
+
+                <label for="nAcoes" >Ações</label>
+                <input type="text" name="nAcoes" id="nAcoes">
+
+                <button> Adicionar +</button>
+            </form>
+        </main>
+    </div>
 </body>
 
 </html>

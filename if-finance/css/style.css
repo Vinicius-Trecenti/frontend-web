@@ -94,10 +94,23 @@ header nav{
 
 header nav ul{
     display: flex;
+    align-items: center;
     list-style-type: none;
     gap: 16px;
     margin: 0;
     padding: 0;
+}
+
+button{
+    background: #02a0e1;
+    color: #d2f2ff;
+
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    
 }
 
 body > main{
@@ -117,6 +130,45 @@ body > footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#add-card-modal{
+    position: absolute;
+    background: #d2f2ff4b;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+}
+
+#add-card-modal main{
+    width: 400px;
+    height: 500px;
+    background: #4ec9faee;
+    padding: 20px;
+
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#add-card-modal main h2{
+    margin: 0;
+    text-align: center;
+}
+
+#add-card-modal main form{
+    display: flex;
+    flex-direction: column;
+}
+
+#add-card-modal main form button{
+    margin-top: 15px;
 }
 
 .card-tincker{
