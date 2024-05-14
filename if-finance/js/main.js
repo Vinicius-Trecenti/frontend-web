@@ -1,7 +1,7 @@
 console.log("Arquivo js externo")
 
 // adicione seu token
-const token = 'cp1bhi1r01qu1k1i3j00cp1bhi1r01qu1k1i3j0g'
+const token = ''
 
 const allStocks = [
     {
