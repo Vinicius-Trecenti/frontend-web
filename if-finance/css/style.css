@@ -132,7 +132,7 @@ body > footer{
     align-items: center;
 }
 
-#add-card-modal{
+.modal{
     position: absolute;
     background: #d2f2ff4b;
     top: 0;
@@ -147,7 +147,7 @@ body > footer{
     display: none;
 }
 
-#add-card-modal main{
+.modal main{
     width: 400px;
     height: 500px;
     background: #4ec9faee;
@@ -157,17 +157,17 @@ body > footer{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-#add-card-modal main h2{
+.modal main h2{
     margin: 0;
     text-align: center;
 }
 
-#add-card-modal main form{
+.modal main form{
     display: flex;
     flex-direction: column;
 }
 
-#add-card-modal main form button{
+.modal main form button{
     margin-top: 15px;
 }
 

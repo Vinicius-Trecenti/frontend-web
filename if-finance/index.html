@@ -27,7 +27,8 @@
                 <li><a href="./destaques.html">Destaques</a></li>
                 <li><a href="./sobre.html">Sobre</a></li>
                 <li><a href="./contato.html">Contato</a></li>
-                <li><button onclick="openModal()">Add Card</button></li>
+                <li><button onclick="openModal('add-form-modal')">Add Card</button></li>
+                <li><button onclick="openModal('add-api-modal')">Test API</button></li>
             </ul>
 
             <div>
@@ -44,7 +45,7 @@
         <p>Copyright - 2024 &copy; Vinicius Trecenti </p>
     </footer>
 
-    <div id="add-card-modal" onclick="closeModal(event)">
+    <div id="add-form-modal" class="modal" onclick="closeModal(event)">
         <main>
             <h2>Adicionando Cards</h2>
 
@@ -63,6 +64,22 @@
 
                 <label for="variacao" >Variação</label>
                 <input type="text" name="variacao" id="variacao">
+
+                <label for="nAcoes" >Ações</label>
+                <input type="text" name="nAcoes" id="nAcoes">
+
+                <button> Adicionar +</button>
+            </form>
+        </main>
+    </div>
+    <div id="add-api-modal" class="modal" onclick="closeModal(event)">
+        <main>
+            <h2>Adicionando Cards</h2>
+
+            <form onsubmit="createCard(event)">
+
+                <label for="codigo">Código</label>
+                <input type="text" name="codigo" id="codigo">
 
                 <label for="nAcoes" >Ações</label>
                 <input type="text" name="nAcoes" id="nAcoes">
