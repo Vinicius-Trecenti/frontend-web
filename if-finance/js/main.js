@@ -67,6 +67,11 @@ function addCard({ bolsa, codigo, valor, variacao, nAcoes, empresa }) {
             </div>
 
         </div>`
+
+        const allEdit = main.querySelectorAll('.card-ticker .card-menu span:first-child')
+        allEdit.forEach(edit => {
+            edit.addEventListener('click', openEditModal)
+        })
 }
 
 function updateCard({bolsa, codigo, empresa, valor, variacao, nAcoes}){
@@ -99,10 +104,8 @@ function updateCard({bolsa, codigo, empresa, valor, variacao, nAcoes}){
 			</div>
     `
 
-    const allEdit = main.querySelectorAll('.card-ticker .card-menu  span:first')
-    allEdit.map(edit => {
-        console.log(edit.text)
-    })
+    const edit = card.querySelector('.card-ticker .card-menu span:first-child')
+	edit.addEventListener('click', openEditModal)
 }
 
 
@@ -280,5 +283,28 @@ const removeCard = (event) => {
 }
 
 const openEditModal = (event) => {
-    console.log(event.target)
+	const card = event.target.closest('.card-tincker')
+	console.log(card);
+
+	const inputBolsa = document.getElementById('e-bolsa')
+	inputBolsa.value = card.querySelector('header h2 span').innerText.replace(':', '')
+
+	const inputCodigo = document.getElementById('e-codigo')
+	inputCodigo.value = card.querySelector('header h2').innerText.split(': ')[1]
+
+	const inputEmpresa = document.getElementById('e-empresa')
+	inputEmpresa.value = card.querySelector('header h1').innerText
+
+	const inputValor = document.getElementById('e-valor')
+	inputValor.value = card.querySelector('main p').dataset.valor
+
+	const inputVariacao = document.getElementById('e-variacao')
+	inputVariacao.value = card.querySelector('main > span').dataset.variacao
+
+	const inputNAcoes = document.getElementById('e-nAcoes')
+	inputNAcoes.value = card.querySelector('footer div p').innerText
+
+			
+	
+	openModal('edit-form-modal')
 }
