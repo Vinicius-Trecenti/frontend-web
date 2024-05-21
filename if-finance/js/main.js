@@ -62,7 +62,7 @@ function addCard({ bolsa, codigo, valor, variacao, nAcoes, empresa }) {
                 </div>
             </footer>
             <div class="card-menu">
-                <span>Editar</span>
+                <span onclick="openEditModal(event)">Editar</span>
                 <span onclick="removeCard(event)">Excluir</span>
             </div>
 
@@ -280,5 +280,5 @@ const removeCard = (event) => {
 }
 
 const openEditModal = (event) => {
-    console.log("abri modal")
+    console.log(event.target)
 }
