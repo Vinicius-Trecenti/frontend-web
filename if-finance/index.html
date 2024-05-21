@@ -28,7 +28,7 @@
                 <li><a href="./sobre.html">Sobre</a></li>
                 <li><a href="./contato.html">Contato</a></li>
                 <li><button onclick="openModal('add-form-modal')">Add Card</button></li>
-                <li><button onclick="openModal('add-api-modal')">Test API</button></li>
+                <li><button onclick="openModal('add-api-modal')">add with API</button></li>
             </ul>
 
             <div>
@@ -74,9 +74,9 @@
     </div>
     <div id="add-api-modal" class="modal" onclick="closeModal(event)">
         <main>
-            <h2>Adicionando Cards</h2>
+            <h2>Adicionando Cards com API</h2>
 
-            <form onsubmit="createCard(event)">
+            <form onsubmit="createApiCard(event)">
 
                 <label for="codigo">Código</label>
                 <input type="text" name="codigo" id="codigo">

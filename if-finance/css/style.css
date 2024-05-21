@@ -172,6 +172,7 @@ body > footer{
 }
 
 .card-tincker{
+    position: relative;
     width: 250px;
     height: 170px;
     background: #d2f2ff;
@@ -180,6 +181,27 @@ body > footer{
 
     align-self: baseline;
 
+}
+
+.card-menu{
+    display: none;
+    position: absolute;
+    background: #b6e4f6bb;
+    backdrop-filter: blur(1px);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 20px;
+
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-tincker span{
+    cursor: pointer;
+    gap: 15px;
 }
 
 .card-tincker header{

@@ -1,7 +1,7 @@
 console.log("Arquivo js externo")
 
 // adicione seu token
-const token = ''
+const token = 'cp1bhi1r01qu1k1i3j00cp1bhi1r01qu1k1i3j0g'
 
 const allStocks = [
     {
@@ -38,7 +38,7 @@ function addCard({ bolsa, codigo, valor, variacao, nAcoes, empresa }) {
     //document é a estrutura e o query seleciona
     const main = document.querySelector('body > main')
     main.innerHTML = main.innerHTML + `
-    <div class="card-tincker">
+    <div class="card-tincker" id="${codigo}" onmouseenter="cardEnter(event)" onmouseleave="cardLeave(event)">
             <header>
                 <h2><span> ${bolsa}:</span> ${codigo}</h2>
                 <h1>${empresa}</h1>
@@ -61,8 +61,50 @@ function addCard({ bolsa, codigo, valor, variacao, nAcoes, empresa }) {
                     <span>Posição</span>
                 </div>
             </footer>
+            <div class="card-menu">
+                <span>Editar</span>
+                <span onclick="removeCard(event)">Excluir</span>
+            </div>
+
         </div>`
 }
+
+function updateCard({bolsa, codigo, empresa, valor, variacao, nAcoes}){
+	//const {bolsa, codigo, empresa, valor, variacao, nAcoes} = stock
+    const card = document.querySelector(`#${codigo}`)
+    
+	card.innerHTML = `
+			<header>
+				<h2><span>${bolsa}:</span> ${codigo}</h2>
+				<h1>${empresa}</h1>
+			</header>
+			<main>
+				<p>${realFormat(+valor / 100)}</p>
+				<span ${ variacao < 0 ? 'style="background: #FF0000;"' : ''} >${ variacao < 0 ? '▼' : '▲'} ${variacao}%</span>
+				<span>${realFormat(((+valor / 100)*(variacao / 100)))}</span>
+			</main>
+			<footer>
+				<div>
+					<p>${nAcoes}</p>
+					<span>Ações</span>
+				</div>
+				<div>
+					<p>${realFormat(nAcoes * (+valor / 100))}</p>
+					<span>Posição</span>
+				</div>
+			</footer>
+			<div class="card-menu">
+				<span onclick="openEditModal(event)" >Editar</span>
+				<span onclick="removeCard(event)">Excluir</span>
+			</div>
+    `
+
+    const allEdit = main.querySelectorAll('.card-ticker .card-menu  span:first')
+    allEdit.map(edit => {
+        console.log(edit.text)
+    })
+}
+
 
 function realFormat(valor) {
     return valor.toFixed(2).toString().replace('.', ',')
@@ -167,7 +209,9 @@ const testeapi = async () => {
     const result = await response.json()
     console.log(result[0].text)
 
-    result.map(item => console.log(item.text))
+    result.map(item => {
+        edit.addEventListener('click', openEditModal)
+    })
 }
 
 
@@ -175,23 +219,66 @@ const createApiCard = async (event) =>{
 	event.preventDefault()
 	const {codigo, nAcoes} = event.target.elements
 
-	const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${codigo.value}&token=${token}`)
-	const result = await response.json()
+    try {
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${codigo.value}&token=${token}`)
+        const result = await response.json()
 
-	const response2 = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${codigo.value}&token=${token}`)
-	const profile = await response2.json()
+        const response2 = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${codigo.value}&token=${token}`)
+        const profile = await response2.json()
 
-	const stock = {
-		bolsa: profile.exchange.split(' ')[0],
-		codigo: codigo.value,
-		empresa: profile.name,
-		valor: result.c * 100,
-		variacao: result.d,
-		nAcoes: nAcoes.value
-	}
+        if(!response.ok || !response2.ok){
+            alert("Erro!")
+            return
+        }
 
-    console.log(stock)
-	addCard(stock)
+        if(profile?.exchange === undefined || !result?.d === null){
+            alert("Erro!")
+            return
+        }
+
+
+
+        const stock = {
+            bolsa: profile.exchange.split(' ')[0],
+            codigo: codigo.value,
+            empresa: profile.name,
+            valor: result.c * 100,
+            variacao: result.d,
+            nAcoes: nAcoes.value
+        }
+    
+        const card = document.getElementById(codigo.value)
+
+        if(card){
+            updateCard(stock)
+        }
+        else{
+            addCard(stock)
+        }
+
+        
+    } catch (error) {
+        alert("Erro ao consultar ação!")
+        console.log('ERROR:', error)
+    }
 	event.target.reset()
 	closeModal(null, 'add-api-modal')
+}
+
+const cardEnter = (event) => {
+	const cardMenu = event.target.querySelector('.card-menu')
+	cardMenu.style.display = 'flex'
+}
+
+const cardLeave = (event) => {
+    const cardMenu = event.target.querySelector('.card-menu')
+    cardMenu.style.display = "none"
+}
+
+const removeCard = (event) => {
+    event.target.closest('.card-tincker').remove()
+}
+
+const openEditModal = (event) => {
+    console.log("abri modal")
 }
