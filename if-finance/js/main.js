@@ -284,27 +284,46 @@ const removeCard = (event) => {
 
 const openEditModal = (event) => {
 	const card = event.target.closest('.card-tincker')
-	console.log(card);
 
 	const inputBolsa = document.getElementById('e-bolsa')
 	inputBolsa.value = card.querySelector('header h2 span').innerText.replace(':', '')
 
 	const inputCodigo = document.getElementById('e-codigo')
 	inputCodigo.value = card.querySelector('header h2').innerText.split(': ')[1]
+    const inputAntigoCodigo = document.getElementById('e-antigo-codigo')
+	inputCodigo.value = card.querySelector('header h2').innerText.split(': ')[1]
+	inputAntigoCodigo.value = card.querySelector('header h2').innerText.split(': ')[1]
 
 	const inputEmpresa = document.getElementById('e-empresa')
 	inputEmpresa.value = card.querySelector('header h1').innerText
 
 	const inputValor = document.getElementById('e-valor')
-	inputValor.value = card.querySelector('main p').dataset.valor
+	inputValor.value = card.querySelector('main > p').dataset.valor
 
 	const inputVariacao = document.getElementById('e-variacao')
-	inputVariacao.value = card.querySelector('main > span').dataset.variacao
+	inputVariacao.value = card.querySelector('main > span').dataset.valor
 
-	const inputNAcoes = document.getElementById('e-nAcoes')
-	inputNAcoes.value = card.querySelector('footer div p').innerText
+	const inputnAcoes = document.getElementById('e-nAcoes')
+	inputnAcoes.value = card.querySelector('footer div p').innerText
 
-			
-	
 	openModal('edit-form-modal')
+}
+
+const editCard = (event) => {
+    event.preventDefault()
+    
+    const formData = new FormData(event.target)
+    console.log(formData)
+    const dados = Object.fromEntries(formData)
+    const card = document.getElementById(dados['antigo-codigo'])
+
+    card.setAttribute('id', dados.codigo)
+
+    updateCard({
+        ...dados, 
+        variacao: +dados.variacao,  
+        nAcoes: +dados.nAcoes, 
+        valor: +dados.valor})
+
+    closeModal(null, 'edit-card-modal')
 }
